@@ -13,7 +13,7 @@
 
 #include "Transport.h"
 
-Transport::Transport() {
+Transport::Transport(std::string name): name(name) {
 }
 
 Transport::Transport(const Transport& orig) {

@@ -14,18 +14,27 @@
 #ifndef STATION_H
 #define STATION_H
 
+#include "reference.h"
+
+#include "Locality.h"
 #include "Ride.h"
+#include <string>
 
 class Station {
+    
+    //name of this station
+    std::string name;
+    
+    //rides of this station
+    Ride **rides;
+    
 public:
-    Station(Ride **rides);
+    Station(std::string name, Ride **rides);
     Station(const Station& orig);
     virtual ~Station();
     
-    Ride **rides;
-    
 private:
-
+    
 };
 
 #endif /* STATION_H */

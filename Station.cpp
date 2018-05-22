@@ -13,7 +13,7 @@
 
 #include "Station.h"
 
-Station::Station(Ride **rides): rides(rides) {
+Station::Station(std::string name, Ride **rides): name(name), rides(rides) {
 }
 
 Station::Station(const Station& orig) {

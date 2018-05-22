@@ -14,11 +14,26 @@
 #ifndef TICKET_H
 #define TICKET_H
 
+#include "reference.h"
+
+#include "Station.h"
+#include "Ride.h"
+
 class Ticket {
+    
+    //the station from
+    Station *from;
+    
+    //the station to
+    Station *to;
+    
+    Ride *ride;
+    
 public:
     Ticket();
     Ticket(const Ticket& orig);
     virtual ~Ticket();
+    
 private:
 
 };

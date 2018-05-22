@@ -14,15 +14,23 @@
 #ifndef RIDE_H
 #define RIDE_H
 
+#include "reference.h"
+
 #include "Transport.h"
+#include <string>
 
 class Ride {
+    
+    //name of this ride
+    std::string name;
+    
+    //transports of this ride
+    Transport **transports;
+    
 public:
-    Ride(Transport **transports);
+    Ride(std::string name, Transport **transports);
     Ride(const Ride& orig);
     virtual ~Ride();
-    
-    Transport **transports;
     
 private:
 

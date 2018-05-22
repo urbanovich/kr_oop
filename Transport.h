@@ -14,15 +14,23 @@
 #ifndef TRANSPORT_H
 #define TRANSPORT_H
 
+#include "reference.h"
+
 #include "Ticket.h"
+#include <string>
 
 class Transport {
+    
+    //name of this transport
+    std::string name;
+    
+    //tickets of this transport
+    Ticket **tickets;
+    
 public:
-    Transport();
+    Transport(std::string name);
     Transport(const Transport& orig);
     virtual ~Transport();
-    
-    Ticket **tickets;
     
 private:
 

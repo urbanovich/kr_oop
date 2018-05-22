@@ -14,18 +14,26 @@
 #ifndef LOCALITY_H
 #define LOCALITY_H
 
+#include "reference.h"
+
 #include "Station.h"
+#include <string>
 
 class Locality {
+    
+    //name of this locality
+    std::string name;
+    
+    //stations of this locality
+    Station **stations;
+    
 public:
-    Locality(Station **stations);
+    Locality(std::string name, Station **stations);
     Locality(const Locality& orig);
     virtual ~Locality();
     
-    Station **stations;
-    
 private:
-
+    
 };
 
 #endif /* LOCALITY_H */

@@ -13,7 +13,7 @@
 
 #include "Ride.h"
 
-Ride::Ride(Transport **transports): transports(transports) {
+Ride::Ride(std::string name, Transport **transports): name(name), transports(transports) {
 }
 
 Ride::Ride(const Ride& orig) {

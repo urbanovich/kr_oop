@@ -13,7 +13,7 @@
 
 #include "Locality.h"
 
-Locality::Locality(Station **stations): stations(stations) {
+Locality::Locality(std::string name, Station **stations): name(name), stations(stations) {
 }
 
 Locality::Locality(const Locality& orig) {

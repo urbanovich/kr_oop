@@ -5,22 +5,21 @@
  */
 
 /* 
- * File:   main.cpp
+ * File:   reference.h
  * Author: setler
  *
- * Created on May 22, 2018, 10:36 PM
+ * Created on May 22, 2018, 11:39 PM
  */
 
-#include <cstdlib>
-#include "reference.h"
+#ifndef REFERENCE_H
+#define REFERENCE_H
 
-using namespace std;
+class Locality;
+class Station;
+class Ride;
+class Transport;
+class Ticket;
 
-/*
- * 
- */
-int main(int argc, char** argv) {
 
-    return 0;
-}
+#endif /* REFERENCE_H */
 

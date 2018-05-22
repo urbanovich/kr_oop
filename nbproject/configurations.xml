@@ -9,6 +9,7 @@
       <itemPath>Station.h</itemPath>
       <itemPath>Ticket.h</itemPath>
       <itemPath>Transport.h</itemPath>
+      <itemPath>reference.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -74,6 +75,8 @@
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="reference.h" ex="false" tool="3" flavor2="0">
+      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
@@ -120,6 +123,8 @@
       <item path="Transport.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="reference.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
