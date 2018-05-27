@@ -41,13 +41,13 @@ public:
     
     std::string current_date;
     
-    std::string t;
+    std::string start_time;
     
-    std::string d;
+    std::string finish_time;
     
     ride_type type;
     
-    Ride(std::string name, List<Transport> *transports);
+    Ride(std::string name, std::string start_time, std::string finish_time, List<Transport> *transports);
     Ride(const Ride& orig);
     virtual ~Ride();
     const std::string currentDate();

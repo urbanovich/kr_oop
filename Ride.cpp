@@ -15,7 +15,13 @@
 
 #include "Ride.h"
 
-Ride::Ride(std::string name, List<Transport> *transports): name(name), transports(transports) {
+Ride::Ride(
+    std::string name, 
+    std::string start_time, 
+    std::string finish_time, 
+    List<Transport> *transports
+): name(name), start_time(start_time), finish_time(finish_time), transports(transports) {
+    
     this->current_date = this->currentDate();
     this->current_time = this->currentTime();
 }

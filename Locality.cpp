@@ -31,24 +31,13 @@ std::ostream& operator<<(std::ostream &stream, Locality &l) {
     return stream;
 }
 
-Ride* Locality::search(List<Locality> *localities, std::string from, std::string to) {
-    
-//    Locality *loc_from = NULL, *loc_to = NULL;
-//    for (int i = 0;  i < 3; i++) {
-//        if (localities[i]->name == from) {
-//            loc_from = localities[i];
-//        } else if(localities[i]->name == to) {
-//            loc_to = localities[i];
-//        }
-//    }
-//    
-//    std::cout << "from: " << loc_from->name << std::endl;
-//    std::cout << "to: " << loc_to->name << std::endl;
-//    for (int i = 0;  i < 3; i++) {
-//        if (loc_from->stations[i]->rides[i]->name == loc_to->stations[i]->rides[i]->name) {
-//            std::cout << *loc_from->stations[i]->rides[i] << std::endl;
-//        }
-//    }
+Ride* Locality::search(
+    List<Locality> *localities, 
+    std::string from, 
+    std::string to, 
+    std::string from_time, 
+    std::string to_time
+) {
     
     Locality *loc;
     Locality *loc_from = NULL, *loc_to = NULL;
@@ -92,11 +81,11 @@ Ride* Locality::search(List<Locality> *localities, std::string from, std::string
                                     Ride *rt = st->rides->get(irt);
                                     
                                     if (rf->name == rt->name) {
-                                        
-                                        std::cout << "Have found " <<  rt->name << " ride in destination locality =)" << std::endl;
-                                        
-//                                        std::cout << *rf << std::endl;
-//                                        return rf;
+                                                                                
+                                        if (rf->start_time >= from_time && rf->finish_time <= to_time) {
+                                            std::cout << "Have found " <<  rt->name << " ride in destination locality =)" << std::endl;
+                                            std::cout << rt->name << ": start time: " << rf->start_time << " finish time: " << rf->finish_time << std::endl;
+                                        }
                                     }
                                 }
                             }

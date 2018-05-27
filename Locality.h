@@ -37,7 +37,7 @@ public:
     
     friend std::ostream& operator<<(std::ostream &stream, Locality &l);
 
-    static Ride* search(List<Locality> *localities, std::string from, std::string to);
+    static Ride* search(List<Locality> *localities, std::string from, std::string to, std::string from_time, std::string to_time);
         
 private:
 

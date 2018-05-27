@@ -30,42 +30,152 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
-    int count = 3;
+//    int count = 5;
+//    
+//    Transport *t;
+//    List<Transport> trans;
+//    for(int i = 0; i < count; i++) {
+//        t = new Transport(std::to_string(i));
+//        trans.add(t);
+//    }
+//    
+//    Ride *r;
+//    List<Ride> rides;
+//    for(int i = 0; i < count; i++) {
+//        r = new Ride(std::to_string(i), &trans);
+//        rides.add(r);
+//    }
+//    
+//    Station *s;
+//    List<Station> stations;
+//    for(int i = 0; i < count; i++) {
+//        s = new Station(std::to_string(i), &rides);
+//        stations.add(s);
+//    }
+//        
+//    Locality *l;
+//    List<Locality> localities;
+//    for(int i = 0; i < count; i++) {
+//        l = new Locality(std::to_string(i), &stations);
+//        localities.add(l);
+//    }
     
-    Transport *t;
-    List<Transport> trans;
-    for(int i = 0; i < count; i++) {
-        t = new Transport(std::to_string(i));
-        trans.add(t);
-    }
-    
-    Ride *r;
-    List<Ride> rides;
-    for(int i = 0; i < count; i++) {
-        r = new Ride(std::to_string(i), &trans);
-        rides.add(r);
-    }
-    
-    Station *s;
-    List<Station> stations;
-    for(int i = 0; i < count; i++) {
-        s = new Station(std::to_string(i), &rides);
-        stations.add(s);
-    }
-        
-    Locality *l;
+    std::string name;
+    std::string response;
     List<Locality> localities;
-    for(int i = 0; i < count; i++) {
-        l = new Locality(std::to_string(i), &stations);
-        localities.add(l);
+    while (true) {
+        std::cout << "You need create transports: " << std::endl;
+        Transport *t;
+        List<Transport> trans;
+        while(true) {
+            
+            std::cout << "Enter transport name: ";
+            std::cin >> name;
+            t = new Transport(name);
+            trans.add(t);
+            
+            std::cout << "If You want add a transport enter 'y' if no 'n': " << std::endl;
+            std::cin >> response;
+            
+            if (response == "n") {
+                break;
+            }
+        }
+        
+        Station *s;
+        List<Station> stations;
+        std::string start_time;
+        std::string finish_time;
+        while(true) {
+            std::cout << "You need create rides for new station: " << std::endl;        
+            Ride *r;
+            List<Ride> rides;
+            while(true) {
+
+                std::cout << "Enter ride name: ";
+                std::cin >> name;
+                std::cout << "Enter start time(2018-06-13 9:45:00): ";
+                std::cin >> start_time;
+                std::cout << "Enter finish time(2018-06-13 12:00:00): ";
+                std::cin >> finish_time;
+                r = new Ride(name, start_time, finish_time, &trans);
+                rides.add(r);
+
+                std::cout << "If You want add a ride enter 'y' if no 'n': " << std::endl;
+                std::cin >> response;
+
+                if (response == "n") {
+                    break;
+                }
+            }
+            
+            std::cout << "You need create station for rides created above: " << std::endl;        
+            while(true) {
+
+                std::cout << "Enter station name: ";
+                std::cin >> name;
+                s = new Station(name, &rides);
+                stations.add(s);
+
+                std::cout << "If You want add a station enter 'y' if no 'n': " << std::endl;
+                std::cin >> response;
+
+                if (response == "n") {
+                    break;
+                }
+            }
+            
+            std::cout << "If You want add a new station and rides enter 'y' if no 'n': " << std::endl;
+            std::cin >> response;
+
+            if (response == "n") {
+                break;
+            }
+        }
+        
+        std::cout << "You need create locality for stations and rides created above: " << std::endl;        
+        Locality *l;
+        while(true) {
+
+            std::cout << "Enter locality name: ";
+            std::cin >> name;
+            l = new Locality(name, &stations);
+            localities.add(l);
+
+            std::cout << "If You want add a locality enter 'y' if no 'n': " << std::endl;
+            std::cin >> response;
+
+            if (response == "n") {
+                break;
+            }
+        }
+        
+        std::cout << "If You want add a new locality and rides enter 'y' if no 'n': " << std::endl;
+        std::cin >> response;
+
+        if (response == "n") {
+            break;
+        }
+        
     }
     
-//    std::cout << *localities.get(1) << std::endl;
+    std::string loc_from;
+    std::cout << "Enter source locality: ";
+    std::cin >> loc_from;
     
-    std::string sity_from = "0";
-    std::string sity_to = "1";
+    std::string loc_to;
+    std::cout << "Enter destination locality: ";
+    std::cin >> loc_to;
     
-    Locality::search(&localities, sity_from, sity_to);
+    std::string from_time;
+    std::cout << "Enter from time(2018-06-13 9:45:00): ";
+    std::cin >> from_time;
+    
+    std::string to_time;
+    std::cout << "Enter to time(2018-06-13 12:00:00): ";
+    std::cin >> to_time;
+    
+    Locality::search(&localities, loc_from, loc_to, from_time, to_time);
     
     return 0;
 }
