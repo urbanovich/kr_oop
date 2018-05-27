@@ -30,36 +30,6 @@ using namespace std;
  */
 int main(int argc, char** argv) {
 
-//    int count = 5;
-//    
-//    Transport *t;
-//    List<Transport> trans;
-//    for(int i = 0; i < count; i++) {
-//        t = new Transport(std::to_string(i));
-//        trans.add(t);
-//    }
-//    
-//    Ride *r;
-//    List<Ride> rides;
-//    for(int i = 0; i < count; i++) {
-//        r = new Ride(std::to_string(i), &trans);
-//        rides.add(r);
-//    }
-//    
-//    Station *s;
-//    List<Station> stations;
-//    for(int i = 0; i < count; i++) {
-//        s = new Station(std::to_string(i), &rides);
-//        stations.add(s);
-//    }
-//        
-//    Locality *l;
-//    List<Locality> localities;
-//    for(int i = 0; i < count; i++) {
-//        l = new Locality(std::to_string(i), &stations);
-//        localities.add(l);
-//    }
-    
     std::string name;
     std::string response;
     List<Locality> localities;
