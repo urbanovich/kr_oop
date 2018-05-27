@@ -17,6 +17,9 @@
 #include "reference.h"
 
 #include "Station.h"
+#include "Node.h"
+#include "List.h"
+
 #include <string>
 
 class Locality {
@@ -25,15 +28,19 @@ class Locality {
     std::string name;
     
     //stations of this locality
-    Station **stations;
+    List<Station> *stations;
     
 public:
-    Locality(std::string name, Station **stations);
+    Locality(std::string name, List<Station> *stations);
     Locality(const Locality& orig);
     virtual ~Locality();
     
+    friend std::ostream& operator<<(std::ostream &stream, Locality &l);
+
+    static Ride* search(List<Locality> *localities, std::string from, std::string to);
+        
 private:
-    
+
 };
 
 #endif /* LOCALITY_H */

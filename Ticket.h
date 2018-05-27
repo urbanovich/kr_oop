@@ -19,7 +19,11 @@
 #include "Station.h"
 #include "Ride.h"
 
+#include <iostream>
+
 class Ticket {
+    
+public:
     
     //the station from
     Station *from;
@@ -27,13 +31,18 @@ class Ticket {
     //the station to
     Station *to;
     
+    //ride of ticket
     Ride *ride;
     
-public:
+    //count of free tickets
+    int count = 0;
+    
     Ticket();
     Ticket(const Ticket& orig);
     virtual ~Ticket();
     
+    friend std::ostream& operator<<(std::ostream &stream, Ticket &t);
+
 private:
 
 };

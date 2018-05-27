@@ -18,23 +18,28 @@
 
 #include "Locality.h"
 #include "Ride.h"
+#include "List.h"
+
 #include <string>
 
 class Station {
+    
+public:
     
     //name of this station
     std::string name;
     
     //rides of this station
-    Ride **rides;
+    List<Ride> *rides;
     
-public:
-    Station(std::string name, Ride **rides);
+    Station(std::string name, List<Ride> *rides);
     Station(const Station& orig);
     virtual ~Station();
     
-private:
+    friend std::ostream& operator<<(std::ostream &stream, Station &s);
     
+private:
+
 };
 
 #endif /* STATION_H */

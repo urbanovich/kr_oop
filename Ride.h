@@ -17,21 +17,45 @@
 #include "reference.h"
 
 #include "Transport.h"
+#include "List.h"
+
 #include <string>
+#include <time.h>
+
+enum ride_type {
+    international,
+    local,
+};
 
 class Ride {
+    
+public:
     
     //name of this ride
     std::string name;
     
     //transports of this ride
-    Transport **transports;
+    List<Transport> *transports;
     
-public:
-    Ride(std::string name, Transport **transports);
+    std::string current_time;
+    
+    std::string current_date;
+    
+    std::string t;
+    
+    std::string d;
+    
+    ride_type type;
+    
+    Ride(std::string name, List<Transport> *transports);
     Ride(const Ride& orig);
     virtual ~Ride();
+    const std::string currentDate();
+    const std::string currentTime();
+    const std::string currentDateTime(std::string str_date_time);
     
+    friend std::ostream& operator<<(std::ostream &stream, Ride &r);
+
 private:
 
 };

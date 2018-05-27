@@ -13,7 +13,7 @@
 
 #include "Station.h"
 
-Station::Station(std::string name, Ride **rides): name(name), rides(rides) {
+Station::Station(std::string name, List<Ride> *rides): name(name), rides(rides) {
 }
 
 Station::Station(const Station& orig) {
@@ -22,3 +22,11 @@ Station::Station(const Station& orig) {
 Station::~Station() {
 }
 
+std::ostream& operator<<(std::ostream &stream, Station &s) {
+    
+    stream << "Station: " << s.name << std::endl;
+    for(int i = 1; i <= s.rides->size(); i++) {
+        stream << *s.rides->get(i) << std::endl;
+    }
+    return stream;
+}

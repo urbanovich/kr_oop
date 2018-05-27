@@ -4,7 +4,9 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>List.h</itemPath>
       <itemPath>Locality.h</itemPath>
+      <itemPath>Node.h</itemPath>
       <itemPath>Ride.h</itemPath>
       <itemPath>Station.h</itemPath>
       <itemPath>Ticket.h</itemPath>
@@ -18,7 +20,9 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>List.cpp</itemPath>
       <itemPath>Locality.cpp</itemPath>
+      <itemPath>Node.cpp</itemPath>
       <itemPath>Ride.cpp</itemPath>
       <itemPath>Station.cpp</itemPath>
       <itemPath>Ticket.cpp</itemPath>
@@ -51,9 +55,17 @@
       </compileType>
       <item path=".gitignore" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="List.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="List.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Locality.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Locality.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Node.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Node.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="README.md" ex="false" tool="3" flavor2="0">
       </item>
@@ -100,9 +112,17 @@
       </compileType>
       <item path=".gitignore" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="List.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="List.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="Locality.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="Locality.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="Node.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="Node.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="README.md" ex="false" tool="3" flavor2="0">
       </item>

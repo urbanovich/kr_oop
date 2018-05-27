@@ -22,3 +22,8 @@ Ticket::Ticket(const Ticket& orig) {
 Ticket::~Ticket() {
 }
 
+std::ostream& operator<<(std::ostream &stream, Ticket &t) {
+    
+    stream << "Tickets: " << t.count << std::endl;
+    return stream;
+}

@@ -35,7 +35,9 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/List.o \
 	${OBJECTDIR}/Locality.o \
+	${OBJECTDIR}/Node.o \
 	${OBJECTDIR}/Ride.o \
 	${OBJECTDIR}/Station.o \
 	${OBJECTDIR}/Ticket.o \
@@ -67,10 +69,20 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kr_oop: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/kr_oop ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/List.o: List.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/List.o List.cpp
+
 ${OBJECTDIR}/Locality.o: Locality.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Locality.o Locality.cpp
+
+${OBJECTDIR}/Node.o: Node.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Node.o Node.cpp
 
 ${OBJECTDIR}/Ride.o: Ride.cpp
 	${MKDIR} -p ${OBJECTDIR}

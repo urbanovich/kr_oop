@@ -13,7 +13,7 @@
 
 #include "Locality.h"
 
-Locality::Locality(std::string name, Station **stations): name(name), stations(stations) {
+Locality::Locality(std::string name, List<Station> *stations): name(name), stations(stations) {
 }
 
 Locality::Locality(const Locality& orig) {
@@ -22,3 +22,92 @@ Locality::Locality(const Locality& orig) {
 Locality::~Locality() {
 }
 
+std::ostream& operator<<(std::ostream &stream, Locality &l) {
+    
+    stream << "Locality: " << l.name << std::endl;
+    for(int i = 1; i <= l.stations->size(); i++) {
+        stream << *l.stations->get(i) << std::endl;
+    }
+    return stream;
+}
+
+Ride* Locality::search(List<Locality> *localities, std::string from, std::string to) {
+    
+//    Locality *loc_from = NULL, *loc_to = NULL;
+//    for (int i = 0;  i < 3; i++) {
+//        if (localities[i]->name == from) {
+//            loc_from = localities[i];
+//        } else if(localities[i]->name == to) {
+//            loc_to = localities[i];
+//        }
+//    }
+//    
+//    std::cout << "from: " << loc_from->name << std::endl;
+//    std::cout << "to: " << loc_to->name << std::endl;
+//    for (int i = 0;  i < 3; i++) {
+//        if (loc_from->stations[i]->rides[i]->name == loc_to->stations[i]->rides[i]->name) {
+//            std::cout << *loc_from->stations[i]->rides[i] << std::endl;
+//        }
+//    }
+    
+    Locality *loc;
+    Locality *loc_from = NULL, *loc_to = NULL;
+    for (int i = 1;  i <= localities->size(); i++) {
+        loc = localities->get(i);
+        if (loc->name == from) {
+            loc_from = loc;
+        } else if(loc->name == to) {
+            loc_to = loc;
+        }
+    }
+    
+    std::cout << "from: " << loc_from->name << std::endl;
+    std::cout << "to: " << loc_to->name << std::endl;
+    
+    if (loc_from->stations->size() > 0) {
+        
+        std::cout << "Have found " <<  loc_from->stations->size() << " stations in source locality =)" << std::endl;
+        
+        for (int isf = 1; isf <= loc_from->stations->size(); isf++) {
+            Station *sf = loc_from->stations->get(isf);
+            
+            if (sf->rides->size() > 0) {
+                
+                std::cout << "Have found " <<  sf->rides->size() << " rides in source locality =)" << std::endl;
+
+                for (int irf = 1; irf <= sf->rides->size(); irf++) {
+                    Ride *rf = sf->rides->get(irf);
+                    
+                    //search by a destination locality
+                    if (loc_to->stations->size() > 0) {
+        
+                        std::cout << "Have found " <<  loc_to->stations->size() << " stations in destination locality =)" << std::endl;
+                        
+                        for (int ist = 1; ist <= loc_to->stations->size(); ist++) {
+                            Station *st = loc_to->stations->get(ist);
+
+                            if (st->rides->size() > 0) {
+
+                                for (int irt = 1; irt <= st->rides->size(); irt++) {
+                                    Ride *rt = st->rides->get(irt);
+                                    
+                                    if (rf->name == rt->name) {
+                                        
+                                        std::cout << "Have found " <<  rt->name << " ride in destination locality =)" << std::endl;
+                                        
+//                                        std::cout << *rf << std::endl;
+//                                        return rf;
+                                    }
+                                }
+                            }
+                        }
+                    } else {
+                        std::cout << "Have not found any stations in " << loc_to->name << " =(" << std::endl;
+                    }
+                }
+            }
+        }
+    } else {
+        std::cout << "Have not found any stations in " << loc_from->name << " =(" << std::endl;
+    }
+}

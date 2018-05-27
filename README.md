@@ -9,10 +9,10 @@
 
 ```linux
 cd /path/to/download/dir; 
-unzip kurs_rab_oop-master.zip; 
-cd kurs_rab_oop-master; 
+unzip kr_oop-master.zip; 
+cd kr_oop-master; 
 make; 
 cd dist/Debug/GNU-Linux; 
 sudo chmod 777 -R .; 
-./kurs_rab_oop; 
+./kr_oop; 
 ```

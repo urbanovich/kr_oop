@@ -17,9 +17,14 @@
 #include "reference.h"
 
 #include "Ticket.h"
+#include "List.h"
+
 #include <string>
+#include <iostream>
 
 class Transport {
+    
+public:
     
     //name of this transport
     std::string name;
@@ -27,13 +32,15 @@ class Transport {
     //tickets of this transport
     Ticket **tickets;
     
-public:
+    Transport();
     Transport(std::string name);
     Transport(const Transport& orig);
     virtual ~Transport();
     
-private:
+    friend std::ostream& operator<<(std::ostream &stream, Transport &t);
 
+private:
+    
 };
 
 #endif /* TRANSPORT_H */

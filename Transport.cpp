@@ -13,6 +13,9 @@
 
 #include "Transport.h"
 
+Transport::Transport() {
+}
+
 Transport::Transport(std::string name): name(name) {
 }
 
@@ -22,3 +25,10 @@ Transport::Transport(const Transport& orig) {
 Transport::~Transport() {
 }
 
+std::ostream& operator<<(std::ostream &stream, Transport &t) {
+    
+    if (!t.name.empty()) {
+        stream << "Transport: " << t.name << std::endl;
+    }
+    return stream;
+}
