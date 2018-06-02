@@ -66,16 +66,22 @@ Ride* Locality::search(
 
                 for (int irf = 1; irf <= sf->rides->size(); irf++) {
                     Ride *rf = sf->rides->get(irf);
-                    
+                                        
                     //search by a destination locality
                     if (loc_to->stations->size() > 0) {
         
-                        std::cout << "Have found " <<  loc_to->stations->size() << " stations in destination locality =)" << std::endl;
+                        if (irf == 1) {
+                            std::cout << "Have found " <<  loc_to->stations->size() << " stations in destination locality =)" << std::endl;
+                        }
                         
                         for (int ist = 1; ist <= loc_to->stations->size(); ist++) {
                             Station *st = loc_to->stations->get(ist);
-
+                                                        
                             if (st->rides->size() > 0) {
+
+                                if (ist == 1) {
+                                    std::cout << "Have found " <<  st->rides->size() << " rides in destination locality =)" << std::endl;
+                                }
 
                                 for (int irt = 1; irt <= st->rides->size(); irt++) {
                                     Ride *rt = st->rides->get(irt);
