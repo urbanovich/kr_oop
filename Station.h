@@ -16,18 +16,16 @@
 
 #include "reference.h"
 
+#include "Object.h"
 #include "Locality.h"
 #include "Ride.h"
 #include "List.h"
 
 #include <string>
 
-class Station {
+class Station: public Object {
     
 public:
-    
-    //name of this station
-    std::string name;
     
     //rides of this station
     List<Ride> *rides;

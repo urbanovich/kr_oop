@@ -13,10 +13,10 @@
 
 #include "Locality.h"
 
-Locality::Locality(std::string name, List<Station> *stations): name(name), stations(stations) {
+Locality::Locality(std::string name, List<Station> *stations): Object(name), stations(stations) {
 }
 
-Locality::Locality(const Locality& orig) {
+Locality::Locality(const Locality& orig): Object(orig) {
 }
 
 Locality::~Locality() {

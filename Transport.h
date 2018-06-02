@@ -16,18 +16,16 @@
 
 #include "reference.h"
 
+#include "Object.h"
 #include "Ticket.h"
 #include "List.h"
 
 #include <string>
 #include <iostream>
 
-class Transport {
+class Transport: public Object {
     
 public:
-    
-    //name of this transport
-    std::string name;
     
     //tickets of this transport
     Ticket **tickets;

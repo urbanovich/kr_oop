@@ -16,16 +16,14 @@
 
 #include "reference.h"
 
+#include "Object.h"
 #include "Station.h"
 #include "Node.h"
 #include "List.h"
 
 #include <string>
 
-class Locality {
-    
-    //name of this locality
-    std::string name;
+class Locality: public Object {
     
     //stations of this locality
     List<Station> *stations;

@@ -5,22 +5,23 @@
  */
 
 /* 
- * File:   reference.h
+ * File:   Object.cpp
  * Author: setler
- *
- * Created on May 22, 2018, 11:39 PM
+ * 
+ * Created on May 31, 2018, 11:44 PM
  */
 
-#ifndef REFERENCE_H
-#define REFERENCE_H
+#include "Object.h"
 
-class Object;
-class Locality;
-class Station;
-class Ride;
-class Transport;
-class Ticket;
+Object::Object() {
+}
 
+Object::Object(std::string name): name(name) {
+}
 
-#endif /* REFERENCE_H */
+Object::Object(const Object& orig) {
+}
+
+Object::~Object() {
+}
 

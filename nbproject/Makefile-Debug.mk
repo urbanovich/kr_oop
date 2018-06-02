@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/List.o \
 	${OBJECTDIR}/Locality.o \
 	${OBJECTDIR}/Node.o \
+	${OBJECTDIR}/Object.o \
 	${OBJECTDIR}/Ride.o \
 	${OBJECTDIR}/Station.o \
 	${OBJECTDIR}/Ticket.o \
@@ -83,6 +84,11 @@ ${OBJECTDIR}/Node.o: Node.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Node.o Node.cpp
+
+${OBJECTDIR}/Object.o: Object.cpp
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Object.o Object.cpp
 
 ${OBJECTDIR}/Ride.o: Ride.cpp
 	${MKDIR} -p ${OBJECTDIR}

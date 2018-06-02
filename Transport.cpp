@@ -13,13 +13,13 @@
 
 #include "Transport.h"
 
-Transport::Transport() {
+Transport::Transport(): Object() {
 }
 
-Transport::Transport(std::string name): name(name) {
+Transport::Transport(std::string name): Object(name) {
 }
 
-Transport::Transport(const Transport& orig) {
+Transport::Transport(const Transport& orig): Object(orig) {
 }
 
 Transport::~Transport() {

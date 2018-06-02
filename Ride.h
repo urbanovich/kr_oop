@@ -16,6 +16,7 @@
 
 #include "reference.h"
 
+#include "Object.h"
 #include "Transport.h"
 #include "List.h"
 
@@ -27,12 +28,9 @@ enum ride_type {
     local,
 };
 
-class Ride {
+class Ride: public Object {
     
 public:
-    
-    //name of this ride
-    std::string name;
     
     //transports of this ride
     List<Transport> *transports;

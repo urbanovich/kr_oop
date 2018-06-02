@@ -20,13 +20,13 @@ Ride::Ride(
     std::string start_time, 
     std::string finish_time, 
     List<Transport> *transports
-): name(name), start_time(start_time), finish_time(finish_time), transports(transports) {
+): Object(name), start_time(start_time), finish_time(finish_time), transports(transports) {
     
     this->current_date = this->currentDate();
     this->current_time = this->currentTime();
 }
 
-Ride::Ride(const Ride& orig) {
+Ride::Ride(const Ride& orig): Object(orig) {
 }
 
 Ride::~Ride() {

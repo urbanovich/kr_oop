@@ -13,10 +13,10 @@
 
 #include "Station.h"
 
-Station::Station(std::string name, List<Ride> *rides): name(name), rides(rides) {
+Station::Station(std::string name, List<Ride> *rides): Object(name), rides(rides) {
 }
 
-Station::Station(const Station& orig) {
+Station::Station(const Station& orig): Object(orig) {
 }
 
 Station::~Station() {
